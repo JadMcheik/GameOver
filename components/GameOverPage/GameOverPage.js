@@ -1,11 +1,17 @@
 import { View, Image, StyleSheet, Text } from "react-native";
-import Title from "./Title";
-import GameOverImage from "../Images/GameOverImage.png";
-import Header from "./Header";
-import CustomButton from "./CustomButton";
-import { Colors } from "../themes/Colors";
+import Title from "../GlobalComponents/Title";
+import GameOverImage from "../../Images/GameOverImage.png";
+import { Restart } from "fiction-expo-restart";
+import CustomButton from "../GlobalComponents/CustomButton";
+import { Colors } from "../../themes/Colors";
+import Header from "../GlobalComponents/Header";
 
-const GameOverPage = () => {
+const GameOverPage = (props) => {
+  function restartGame() {
+    props.setUserNumber();
+    props.setRoundsNumber();
+  }
+
   return (
     <View style={styles.gameOverPage}>
       <Header />
@@ -19,12 +25,15 @@ const GameOverPage = () => {
         </View>
         <View style={styles.resultView}>
           <Text style={styles.resultText}>
-            Your phone needed 2 rounds to guess the number 12
+            Your phone needed{" "}
+            <Text style={styles.resultValue}>{props.roundsNumber}</Text> rounds
+            to guess the number{" "}
+            <Text style={styles.resultValue}>{props.userNumber}</Text>
           </Text>
         </View>
 
         <View style={styles.startNewGameView}>
-          <CustomButton buttonValue="Start New Game" />
+          <CustomButton buttonValue="Start New Game" function={restartGame} />
         </View>
       </View>
     </View>
@@ -69,7 +78,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
-
+  resultValue: {
+    color: Colors.mainColor,
+    fontWeight: "bold",
+  },
   startNewGameView: {
     width: "100%",
     paddingHorizontal: 60,

@@ -1,14 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import MainPage from "./components/MainPage";
 
-import InitialPage from "./components/InitialPage";
-import PhoneGuessPage from "./components/PhoneGuessPage";
-import GameOverPage from "./components/GameOverPage";
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-   <GameOverPage/>
+   <MainPage/>
 
       <StatusBar style="auto" />
     </View>

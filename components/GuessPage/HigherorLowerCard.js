@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet } from "react-native";
-import CustomButton from "./CustomButton";
-import Card from "./Card";
-import { Colors } from "../themes/Colors";
+import Card from "../GlobalComponents/Card";
+import CustomButton from "../GlobalComponents/CustomButton";
+import { Colors } from "../../themes/Colors";
 
-const HigherOrLowerCard = () => {
+const HigherOrLowerCard = (props) => {
   return (
     <Card>
       <View style={styles.higherOrLowerView}>
@@ -12,10 +12,10 @@ const HigherOrLowerCard = () => {
 
       <View style={styles.minusOrPlusView}>
         <View style={styles.buttonView}>
-          <CustomButton buttonValue="-" />
+          <CustomButton buttonValue="-" function={props.lower} />
         </View>
         <View style={styles.buttonView}>
-          <CustomButton buttonValue="+" />
+          <CustomButton buttonValue="+" function={props.higher} />
         </View>
       </View>
     </Card>

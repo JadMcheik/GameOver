@@ -3,11 +3,11 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
-import { Colors } from "../themes/Colors";
+import { Colors } from "../../themes/Colors"
 
 const CustomButton = (props) => {
   return (
-    <TouchableOpacity style={styles.ButtonView}>
+    <TouchableOpacity style={styles.ButtonView} onPress={props.function}>
       <Text style={styles.ButtonText}>{props.buttonValue}</Text>
     </TouchableOpacity>
   );
