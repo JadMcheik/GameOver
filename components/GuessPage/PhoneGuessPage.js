@@ -53,7 +53,7 @@ const PhoneGuessPage = (props) => {
 
   function lower() {
     if (guessedNumber > props.userNumber) {
-      setMax(guessedNumber );
+      setMax(guessedNumber);
     } else {
       Alert.alert("Attention", "please don't cheat!");
     }
